@@ -1,0 +1,141 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hello",
+        "Hi",
+        "Hey",
+        "Good morning",
+        "Good evening"
+      ],
+      "responses": [
+        "Hello! How can I assist you today?",
+        "Hi there! How can I help?",
+        "Hey! What can I do for you today?",
+        "Good morning! How can I assist you?",
+        "Good evening! How can I help you?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "Bye",
+        "See you later",
+        "Goodbye",
+        "Catch you later"
+      ],
+      "responses": [
+        "Goodbye! Have a great day!",
+        "See you later!",
+        "Goodbye! Take care.",
+        "Catch you later!"
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": [
+        "Thanks",
+        "Thank you",
+        "That was helpful",
+        "I appreciate it"
+      ],
+      "responses": [
+        "You're welcome!",
+        "Happy to help!",
+        "Glad I could assist!",
+        "Anytime!"
+      ]
+    },
+    {
+      "tag": "weather",
+      "patterns": [
+        "What's the weather like?",
+        "Tell me the weather",
+        "Weather forecast",
+        "How's the weather"
+      ],
+      "responses": [
+        "The weather is great today!",
+        "It is  sunny and clear outside.",
+        "Looks like it's going to rain soon!",
+        "It is a perfect day to go out!"
+      ]
+    },
+    {
+      "tag": "age",
+      "patterns": [
+        "How old are you?",
+        "What's your age?",
+        "Tell me your age"
+      ],
+      "responses": [
+        "I'm a bot, age doesnt apply to me!",
+        "I was born when you activated me!",
+        "I am timeless!"
+      ]
+    },
+    {
+      "tag": "name",
+      "patterns": [
+        "What is your name?",
+        "Who are you?",
+        "Tell me your name",
+        "May I know your name?"
+      ],
+      "responses": [
+        "I am your helpful assistant.",
+        "I am a virtual assistant created to help you!",
+        "You can call me Bot.",
+        "I am just here to assist you!"
+      ]
+    },
+    {
+      "tag": "help",
+      "patterns": [
+        "I need help",
+        "Can you help me?",
+        "Assist me",
+        "Help"
+      ],
+      "responses": [
+        "Of course! What do you need help with?",
+        "I am here to help! What can I assist you with?",
+        "Sure! How can I assist?",
+        "I am ready to help! What do you need?"
+      ]
+    },
+    {
+      "tag": "joke",
+      "patterns": [
+        "Tell me a joke",
+        "Make me laugh",
+        "Do you know any jokes?",
+        "Can you tell me a joke?"
+      ],
+      "responses": [
+        "Why did the scarecrow win an award? Because he was outstanding in his field!",
+        "I tried to catch some fog, but I mist.",
+        "I told my wife she was drawing her eyebrows too high. She looked surprised!",
+        "What do you call a bean that is lying, A SOYA BEAN !"
+      ]
+    },
+ 
+    {
+      "tag": "hobbies",
+      "patterns": [
+        "Do you have any hobbies?",
+        "What do you do for fun?",
+        "What are your hobbies?",
+        "Tell me your hobbies"
+      ],
+      "responses": [
+        "I like processing data and learning new things!",
+        "I enjoy helping people like you!",
+        "My hobby is making sure you get the information you need!",
+        "I love making sure you always get accurate answers!"
+      ]
+    }
+    
+  ]
+}
