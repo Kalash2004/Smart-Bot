@@ -1,32 +1,47 @@
 
 # 🤖 Description
 
-SmartBot is a sophisticated AI-powered assistant that combines the capabilities of a traditional chatbot with voice interaction features. Built using machine learning and natural language processing, SmartBot can understand user queries, analyze sentiment, and provide intelligent responses through both text and voice interfaces. The bot is designed to be user-friendly and can perform various tasks including web searches, time queries, and general conversation.
+SmartBot is an advanced AI-powered assistant that combines the capabilities of a traditional chatbot, modern transformer-based conversational AI, and voice interaction features. Built using machine learning, Hugging Face transformers, and natural language processing, SmartBot can understand queries, analyze sentiment, and deliver intelligent responses via text or voice.
+
+With Retrieval-Augmented Generation (RAG) integration, SmartBot can retrieve factual answers from a connected knowledge base when the default conversational model lacks information, making it both engaging and informative.
 # ✨ Features
 ### 🎯 Core Capabilities
 
-Dual Interface: Choose between chatbot (text) or voice assistant mode
-Voice Recognition: Speech-to-text conversion for hands-free interaction
-Text-to-Speech: Natural voice responses using Windows SAPI
-Sentiment Analysis: Real-time emotion detection in user messages
-Intent Recognition: Advanced NLP model to understand user intentions
-Web Integration: Direct Google search functionality
-Time Queries: Current time retrieval and announcement
+Dual Interface – Choose between chatbot (text) or voice assistant mode.
+
+Voice Recognition – Speech-to-text conversion for hands-free interaction.
+
+Text-to-Speech – Natural voice responses using Windows SAPI.
+
+Sentiment Analysis – Real-time emotion detection in user messages.
+
+Intent Recognition – TensorFlow/Keras-powered classification for pre-defined commands.
+
+RAG Integration – Retrieves and integrates factual answers from external sources.
+
+
 
 ### 🧠 Intelligence Features
 
-Machine Learning: TensorFlow/Keras-based intent classification
-Natural Language Processing: NLTK-powered text processing
-Lemmatization: Advanced word normalization for better understanding
-Probability-based Responses: Confidence scoring for intent predictions
-Customizable Responses: JSON-based intent and response management
+Machine Learning – TensorFlow/Keras model for intent classification.
+
+Transformer-based NLP – Hugging Face’s DialoGPT for contextual dialogue.
+
+PyTorch 2.6 Ready – Compatibility fixes for token padding & attention masks.
+
+Lemmatization & Tokenization – NLTK preprocessing for better understanding.
+
+Fallback RAG Search – Uses ask_query() when transformer response is weak.
 
 ### 🎨 User Experience
 
-Interactive Mode Selection: Voice-guided mode selection
-Real-time Feedback: Live sentiment analysis display
-Error Handling: Graceful handling of speech recognition errors
-Exit Commands: Multiple ways to terminate the session# Tech Stack
+Interactive Mode Selection – Voice-guided mode choice.
+
+Real-time Feedback – Displays sentiment analysis with responses.
+
+Error Handling – Handles recognition, generation, and RAG errors gracefully.
+
+Conversation Memory – Maintains history for contextual replies (auto-truncated for performance).
 
 ### Programming Language
 
@@ -34,22 +49,33 @@ Python 3.x - Core development language
 
 ### Machine Learning & NLP
 
-- TensorFlow/Keras - Deep learning model for intent classification
-- NLTK - Natural language processing toolkit
-- TextBlob - Sentiment analysis and text processing
-- NumPy - Numerical computing for model operations
+TensorFlow/Keras – Intent classification
+
+Hugging Face Transformers – DialoGPT conversational model
+
+PyTorch – Transformer execution backend
+
+NLTK – Text preprocessing & lemmatization
+
+TextBlob – Sentiment analysis
+
+NumPy – Numerical computing
 
 ### Voice & Speech
 
-- SpeechRecognition - Voice input processing
-- win32com.client - Windows Speech API integration
-- Google Speech Recognition - Cloud-based speech-to-text
+SpeechRecognition – Speech-to-text
+
+win32com.client – Windows SAPI text-to-speech
+
+Google Speech Recognition – Cloud-based voice input
 
 ### Data & Web
 
-- JSON - Intent and response data management
-- Pickle - Model and data serialization
-- webbrowser - Web integration for searches
+JSON – Intent and response storage
+
+Pickle – Model & data serialization
+
+RAG – Retrieval-Augmented Generation for external knowledge
 
 ### Utilities
 
@@ -58,10 +84,13 @@ Python 3.x - Core development language
 - os/sys - System interactions# 🚀 Installation & Setup
 ### Prerequisites
 
-- Python 3.7 or higher
-- Windows OS (for voice features)
-- Microphone (for voice assistant mode)
-- Internet connection (for speech recognition)
+Python 3.7+
+
+Windows OS (for voice features)
+
+Microphone (for voice mode)
+
+Internet connection (for speech recognition & RAG)
 
 ### Installation Steps
 
@@ -85,6 +114,10 @@ Download NLTK data
 pythonimport nltk
 nltk.download('punkt')
 nltk.download('wordnet')
+
+git clone https://github.com/yourusername/smartbot.git
+cd smartbot
+pip install -r requirements.txt
 ```
 ### Prepare model files
 
@@ -104,13 +137,22 @@ bashpython SmartBot.py
 
 Make sure these files are present in your project directory:
 
-smartbot/
-├── SmartBot.py          # Main application file
-├── intents.json         # Intent patterns and responses
-├── chatbot_model.h5     # Trained TensorFlow model
+Smartbot
+
+├── SmartBot.py         # Main application file
+
+├── RAG_chain.py        # Retrieval-Augmented Generation logic
+
+├── intents.json        # Intent patterns and responses
+
+├── chatbot_model.h5    # Trained TensorFlow/Keras model
+
 ├── words.pkl           # Vocabulary pickle file
+
 ├── classes.pkl         # Intent classes pickle file
-└── README.md           # This file
+
+└── README.md           # Project documentation
+
 # 🔧 How It Works
 1. Mode Selection
 
@@ -129,12 +171,20 @@ A bag-of-words model converts text to numerical representation
 TensorFlow model predicts the intent with confidence scores
 Only predictions above the error threshold (0.25) are considered
 
-4. Response Generation
+4. Transformer Response
+
+Generate conversational reply using DialoGPT.
+
+5. RAG Fallback
+
+ If reply is weak or generic, query external knowledge base.
+
+7. Response Generation
 
 Based on the predicted intent, a random response is selected from the JSON file
 Responses are contextually appropriate and varied
 
-5. Sentiment Analysis
+7. Sentiment Analysis
 
 TextBlob analyzes the emotional tone of user input
 Sentiment is classified as positive, negative, or neutral
